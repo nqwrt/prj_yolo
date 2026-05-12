@@ -204,7 +204,6 @@ class _RegisterPointPagetate extends State<RegisterPointPage> {
             // ),
             //
             // SizedBox(width: 8),
-
             Text("입력완료", style: TextStyle(color: Colors.white, fontSize: 22,fontWeight: FontWeight.bold)),
           ],
         ),

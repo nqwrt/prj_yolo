@@ -54,15 +54,12 @@ class _RegisterInfoPagetate extends State<RegisterInfoPage> {
           padding: const EdgeInsets.all(8.0),
           child: Image.asset('assets/img/ic_navigate_before_white_24dp.png'),
         ),
-
         // 가운데 제목
         title: const Text(
           "회원 가입",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-
         centerTitle: true,
-
         // 오른쪽 이미지
         actions: [
           Padding(
