@@ -11,37 +11,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const RegisterInfoPage(),
+      home: const RegisterPhonePage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class RegisterInfoPage extends StatefulWidget {
-  const RegisterInfoPage({super.key});
+class RegisterPhonePage extends StatefulWidget {
+  const RegisterPhonePage({super.key});
 
   @override
-  State<RegisterInfoPage> createState() => _RegisterInfoPagetate();
+  State<RegisterPhonePage> createState() => _RegisterPhonePagetate();
 }
 
-class _RegisterInfoPagetate extends State<RegisterInfoPage> {
-  int selected = 0; // 👈 반드시 추가
+class _RegisterPhonePagetate extends State<RegisterPhonePage> {
+  String? selectedYear="2026";
 
-  Widget termsBox(String text) {
-    return Container(
-      width: double.infinity,
-      height: 200,
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.grey, width: 1),
-        borderRadius: BorderRadius.circular(0),
-      ),
-      child: SingleChildScrollView(
-        child: Text(text, style: const TextStyle(fontSize: 13, height: 1.5)),
-      ),
-    );
-  }
+  final years = List.generate(
+    100,
+        (i) => (DateTime.now().year - i).toString(),
+  );
+
+  final firstController = TextEditingController();
+  final middleController = TextEditingController();
+  final lastController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +104,7 @@ class _RegisterInfoPagetate extends State<RegisterInfoPage> {
             ),
 
             SizedBox(height: 35),
-            Text("아이디", style: TextStyle(fontSize: 15)),
+            Text("이름", style: TextStyle(fontSize: 15)),
 
             SizedBox(height: 6),
             Row(
@@ -119,7 +112,7 @@ class _RegisterInfoPagetate extends State<RegisterInfoPage> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: "아이디를 입력해 주세요",
+                      hintText: "이름을 입력해 주세요",
                       hintStyle: TextStyle(
                         fontSize: 15, // 15sp
                         color: Color(0xFFABABAB), // #333333
@@ -138,65 +131,99 @@ class _RegisterInfoPagetate extends State<RegisterInfoPage> {
                     ),
                   ),
                 ),
+              ],
+            ),
+            SizedBox(height: 10,),
+            Text("휴대폰", style: TextStyle(fontSize: 15)),
+            SizedBox(height: 6,),
 
-                TextButton(
-                  onPressed: () {
-                    // 중복확인 로직
-                  },
-                  style: TextButton.styleFrom(
-                    backgroundColor:Color(0xFFABABAB), // 회색 배경
-                    foregroundColor: Colors.black, // 검은 글씨
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintText: "010",
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding: EdgeInsets.all(10),
+                      border: OutlineInputBorder(),
                     ),
                   ),
-                  child: Text("중복확인"),
+                ),
+
+                SizedBox(width: 8),
+
+                Expanded(
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintText: "1234",
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding: EdgeInsets.all(10),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+
+                SizedBox(width: 8),
+
+                Expanded(
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintText: "5678",
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding: EdgeInsets.all(10),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 16,),
-            Text("비밀번호", style: TextStyle(fontSize: 15)),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "아이디를 입력해 주세요",
-                hintStyle: TextStyle(
-                  fontSize: 15, // 15sp
-                  color: Color(0xFFABABAB), // #333333
-                ),
-                contentPadding: EdgeInsets.all(10),
-                // 안쪽 패딩 10
-                filled: true,
-                fillColor: Colors.white,
+            SizedBox(height: 10,),
+            Text("출생년도", style: TextStyle(fontSize: 15)),
 
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-              ),
-            ),
-            SizedBox(height: 16,),
-            Text("비밀번호 확인", style: TextStyle(fontSize: 15)),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "비밀번호 확인",
-                hintStyle: TextStyle(
-                  fontSize: 15, // 15sp
-                  color: Color(0xFFABABAB), // #333333
-                ),
-                contentPadding: EdgeInsets.all(10),
-                // 안쪽 패딩 10
-                filled: true,
-                fillColor: Colors.white,
+            SizedBox(height: 6,),
+            Container(
+              width: 120,
+              child: DropdownButtonFormField<String>(
+                value: selectedYear,
+                decoration: InputDecoration(
+                  hintText: "출생년도",
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: EdgeInsets.all(10),
 
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+                  // TextField 느낌 테두리
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
+
+                // 🔽 아래 화살표 (기본 제공)
+                icon: Icon(Icons.arrow_drop_down, color: Colors.grey),
+                isExpanded: true, // 텍스트 꽉 차게
+                items: years.map((y) {
+                  return DropdownMenuItem(
+                    value: y,
+                    child: Text(y),
+                  );
+                }).toList(),
+
+                onChanged: (value) {
+                  setState(() {
+                    selectedYear = value;
+                  });
+                },
               ),
             ),
 
