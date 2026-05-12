@@ -173,7 +173,6 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                       // 안쪽 패딩 10
                       filled: true,
                       fillColor: Colors.white,
-
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),

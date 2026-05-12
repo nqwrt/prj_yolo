@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../cutom_selector.dart';
+import 'yolo_register_info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,11 +76,16 @@ class _RegisterPagetate extends State<RegisterPage> {
         backgroundColor: const Color(0xFF3D4150),
         elevation: 0,
         //왼쪽 이미지
-        leading: Container(
-            padding: const EdgeInsets.all(8.0),
-            child:Image.asset(
-              'assets/img/ic_navigate_before_white_24dp.png',
-            )
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+              padding: const EdgeInsets.all(8.0),
+              child:Image.asset(
+                'assets/img/ic_navigate_before_white_24dp.png',
+              )
+          ),
         ),
 
         // 가운데 제목
@@ -95,12 +101,17 @@ class _RegisterPagetate extends State<RegisterPage> {
 
         // 오른쪽 이미지
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              'assets/img/ic_clear_white_24dp.png',
-              width: 28,
-              height: 28,
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                'assets/img/ic_clear_white_24dp.png',
+                width: 28,
+                height: 28,
+              ),
             ),
           ),
         ],
@@ -160,25 +171,36 @@ class _RegisterPagetate extends State<RegisterPage> {
       bottomNavigationBar: Container(
         height: 60,
         color: Colors.redAccent,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-          Image.asset(
-            'assets/img/ic_input_white_24dp.png',
-            width: 24,
-            height: 24,
-          ),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => RegisterInfoPage(),
+              ),
+            );
+          },
 
-          SizedBox(width: 8),
-
-          Text(
-            "계속",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+            Image.asset(
+              'assets/img/ic_input_white_24dp.png',
+              width: 24,
+              height: 24,
             ),
+
+            SizedBox(width: 8),
+
+            Text(
+              "계속",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+            ]
           ),
-          ]
         ),
       ),
 

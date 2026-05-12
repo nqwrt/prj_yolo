@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../cutom_selector.dart';
+import 'yolo_register_phone.dart';
 
 void main() {
   runApp(const MyApp());
@@ -230,19 +230,30 @@ class _RegisterInfoPagetate extends State<RegisterInfoPage> {
       bottomNavigationBar: Container(
         height: 60,
         color: Colors.redAccent,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/img/ic_input_white_24dp.png',
-              width: 24,
-              height: 24,
-            ),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => RegisterPhonePage(),
+              ),
+            );
+          },
 
-            SizedBox(width: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/img/ic_input_white_24dp.png',
+                width: 24,
+                height: 24,
+              ),
 
-            Text("계속", style: TextStyle(color: Colors.white, fontSize: 16)),
-          ],
+              SizedBox(width: 8),
+
+              Text("계속", style: TextStyle(color: Colors.white, fontSize: 16)),
+            ],
+          ),
         ),
       ),
     );
