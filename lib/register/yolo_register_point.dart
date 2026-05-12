@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../cutom_selector.dart';
+import '../make_radio_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +28,7 @@ class _RegisterPointPagetate extends State<RegisterPointPage> {
 
   // 선택된 Grid 저장
   List<int> selectedItems = [];
+  String selectedGender = "남자";
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +95,40 @@ class _RegisterPointPagetate extends State<RegisterPointPage> {
                 height: 3, // 두께
                 color: Colors.red,
               ),
+            ),
+            SizedBox(height: 35),
+
+            // 통신사
+            CustomRadioGroup(
+              title: "통신사",
+              items: [
+                "SKT",
+                "KT",
+                "LGT",
+                "알뜰폰"
+              ],
+              groupValue: selectedGender,
+              onChanged: (value) {
+                setState(() {
+                  selectedGender = value;
+                });
+              },
+            ),
+
+            SizedBox(height: 25),
+
+            CustomRadioGroup(
+              title: "휴대폰 운영체제",
+              items: [
+                "Android",
+                "IOS",
+              ],
+              groupValue: selectedGender,
+              onChanged: (value) {
+                setState(() {
+                  selectedGender = value;
+                });
+              },
             ),
 
             SizedBox(height: 35),
@@ -162,15 +197,15 @@ class _RegisterPointPagetate extends State<RegisterPointPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/img/ic_input_white_24dp.png',
-              width: 24,
-              height: 24,
-            ),
+            // Image.asset(
+            //   'assets/img/ic_input_white_24dp.png',
+            //   width: 24,
+            //   height: 24,
+            // ),
+            //
+            // SizedBox(width: 8),
 
-            SizedBox(width: 8),
-
-            Text("계속", style: TextStyle(color: Colors.white, fontSize: 16)),
+            Text("입력완료", style: TextStyle(color: Colors.white, fontSize: 22,fontWeight: FontWeight.bold)),
           ],
         ),
       ),
