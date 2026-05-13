@@ -172,6 +172,10 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           hintText: "010",
+                          hintStyle: TextStyle(
+                            fontSize: 15, // 15sp
+                            color: Color(0xFFABABAB), // #333333
+                          ),
                           filled: true,
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.all(10),
@@ -192,6 +196,10 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           hintText: "1234",
+                          hintStyle: TextStyle(
+                            fontSize: 15, // 15sp
+                            color: Color(0xFFABABAB), // #333333
+                          ),
                           filled: true,
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.all(10),
@@ -206,12 +214,15 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                     ),
 
                     SizedBox(width: 8),
-
                     Expanded(
                       child: TextField(
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           hintText: "5678",
+                          hintStyle: TextStyle(
+                            fontSize: 15, // 15sp
+                            color: Color(0xFFABABAB), // #333333
+                          ),
                           filled: true,
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.all(10),
