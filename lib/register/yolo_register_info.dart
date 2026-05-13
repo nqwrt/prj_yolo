@@ -43,160 +43,167 @@ class _RegisterInfoPagetate extends State<RegisterInfoPage> {
       ),
     );
   }
+  //고정패턴
+  // Scaffold
+  // └─ SingleChildScrollView
+  // └─ Column
+  // └─ SizedBox(bottom padding)
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: CustomAppBar.build(context, "회원 가입"),
 
-      body: Container(
-        width: double.infinity,
-
-        color: const Color(0xFFEAE3DD),
-        padding: const EdgeInsets.symmetric(horizontal: 11),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20),
-            Center(
-              child: Column(
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          color: const Color(0xFFEAE3DD),
+          padding: const EdgeInsets.symmetric(horizontal: 11),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Center(
+                child: Column(
+                  children: [
+                    Text(
+                      "회원가입을 위해",
+                      style: TextStyle(fontSize: 19),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      "아래의 정보를 입력해 주세요",
+                      style: TextStyle(fontSize: 19),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 12),
+              Center(
+                child: Container(
+                  width: 28, // 선 길이
+                  height: 3, // 두께
+                  color: Colors.red,
+                ),
+              ),
+        
+              SizedBox(height: 35),
+              Text("아이디", style: TextStyle(fontSize: 15)),
+        
+              SizedBox(height: 6),
+              Row(
                 children: [
-                  Text(
-                    "회원가입을 위해",
-                    style: TextStyle(fontSize: 19),
-                    textAlign: TextAlign.center,
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "아이디를 입력해 주세요",
+                        hintStyle: TextStyle(
+                          fontSize: 15, // 15sp
+                          color: Color(0xFFABABAB), // #333333
+                        ),
+                        contentPadding: EdgeInsets.all(10),
+                        // 안쪽 패딩 10
+                        filled: true,
+                        fillColor: Colors.white,
+        
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
+                      ),
+                    ),
                   ),
-                  Text(
-                    "아래의 정보를 입력해 주세요",
-                    style: TextStyle(fontSize: 19),
-                    textAlign: TextAlign.center,
+        
+                  TextButton(
+                    onPressed: () {
+                      // 중복확인 로직
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor:Color(0xFFABABAB), // 회색 배경
+                      foregroundColor: Colors.black, // 검은 글씨
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                    ),
+                    child: Text("중복확인"),
                   ),
                 ],
               ),
-            ),
-            SizedBox(height: 12),
-            Center(
-              child: Container(
-                width: 28, // 선 길이
-                height: 3, // 두께
-                color: Colors.red,
-              ),
-            ),
-
-            SizedBox(height: 35),
-            Text("아이디", style: TextStyle(fontSize: 15)),
-
-            SizedBox(height: 6),
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "아이디를 입력해 주세요",
-                      hintStyle: TextStyle(
-                        fontSize: 15, // 15sp
-                        color: Color(0xFFABABAB), // #333333
-                      ),
-                      contentPadding: EdgeInsets.all(10),
-                      // 안쪽 패딩 10
-                      filled: true,
-                      fillColor: Colors.white,
-
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                      ),
-                    ),
+              SizedBox(height: 16,),
+              Text("비밀번호", style: TextStyle(fontSize: 15)),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "아이디를 입력해 주세요",
+                  hintStyle: TextStyle(
+                    fontSize: 15, // 15sp
+                    color: Color(0xFFABABAB), // #333333
+                  ),
+                  contentPadding: EdgeInsets.all(10),
+                  // 안쪽 패딩 10
+                  filled: true,
+                  fillColor: Colors.white,
+        
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
                   ),
                 ),
-
-                TextButton(
-                  onPressed: () {
-                    // 중복확인 로직
-                  },
-                  style: TextButton.styleFrom(
-                    backgroundColor:Color(0xFFABABAB), // 회색 배경
-                    foregroundColor: Colors.black, // 검은 글씨
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
+              ),
+              SizedBox(height: 16,),
+              Text("비밀번호 확인", style: TextStyle(fontSize: 15)),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "비밀번호 확인",
+                  hintStyle: TextStyle(
+                    fontSize: 15, // 15sp
+                    color: Color(0xFFABABAB), // #333333
                   ),
-                  child: Text("중복확인"),
-                ),
-              ],
-            ),
-            SizedBox(height: 16,),
-            Text("비밀번호", style: TextStyle(fontSize: 15)),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "아이디를 입력해 주세요",
-                hintStyle: TextStyle(
-                  fontSize: 15, // 15sp
-                  color: Color(0xFFABABAB), // #333333
-                ),
-                contentPadding: EdgeInsets.all(10),
-                // 안쪽 패딩 10
-                filled: true,
-                fillColor: Colors.white,
-
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+                  contentPadding: EdgeInsets.all(10),
+                  // 안쪽 패딩 10
+                  filled: true,
+                  fillColor: Colors.white,
+        
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 16,),
-            Text("비밀번호 확인", style: TextStyle(fontSize: 15)),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "비밀번호 확인",
-                hintStyle: TextStyle(
-                  fontSize: 15, // 15sp
-                  color: Color(0xFFABABAB), // #333333
-                ),
-                contentPadding: EdgeInsets.all(10),
-                // 안쪽 패딩 10
-                filled: true,
-                fillColor: Colors.white,
-
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 16,),
-            Text("이메일", style: TextStyle(fontSize: 15)),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "이메일을 입력해 주세요",
-                hintStyle: TextStyle(
-                  fontSize: 15, // 15sp
-                  color: Color(0xFFABABAB), // #333333
-                ),
-                contentPadding: EdgeInsets.all(10),
-                // 안쪽 패딩 10
-                filled: true,
-                fillColor: Colors.white,
-
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+        
+              SizedBox(height: 16,),
+              Text("이메일", style: TextStyle(fontSize: 15)),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "이메일을 입력해 주세요",
+                  hintStyle: TextStyle(
+                    fontSize: 15, // 15sp
+                    color: Color(0xFFABABAB), // #333333
+                  ),
+                  contentPadding: EdgeInsets.all(10),
+                  // 안쪽 패딩 10
+                  filled: true,
+                  fillColor: Colors.white,
+        
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
                 ),
               ),
-            ),
-
-          ],
+              const SizedBox(height: 200),
+            ],
+          ),
         ),
       ),
 

@@ -164,7 +164,6 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                 SizedBox(height: 10,),
                 Text("휴대폰", style: TextStyle(fontSize: 15)),
                 SizedBox(height: 6,),
-
                 Row(
                   children: [
                     Expanded(
@@ -244,7 +243,7 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                 Container(
                   width: 120,
                   child: DropdownButtonFormField<String>(
-                    value: selectedYear,
+                    initialValue: selectedYear,
                     decoration: InputDecoration(
                       hintText: "출생년도",
                       filled: true,

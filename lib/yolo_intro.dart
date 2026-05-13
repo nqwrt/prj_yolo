@@ -27,17 +27,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Container(
           width: double.infinity,
-          height: double.infinity,
-
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/img/bg_sky.jpg'),
               fit: BoxFit.cover,
             ),
           ),
-
           child: Container(
             padding: EdgeInsets.only(top: 160),
             child: Column(
@@ -83,9 +81,9 @@ class _HomePageState extends State<HomePage> {
                             width:24,
                             height:24
                         ),
-                    
+
                         SizedBox(width:8,),
-                    
+
                         Text(
                           "회원 가입",
                           style: TextStyle(
