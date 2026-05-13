@@ -24,7 +24,7 @@ class CustomRadioGroup extends StatelessWidget {
       //padding: const EdgeInsets.all(16),
 
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color(0xFFEAE3DD),
         borderRadius: BorderRadius.circular(0),
       ),
 
