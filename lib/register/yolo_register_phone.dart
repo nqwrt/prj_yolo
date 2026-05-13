@@ -175,7 +175,12 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                           filled: true,
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.all(10),
-                          border: OutlineInputBorder(),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
                         ),
                       ),
                     ),
@@ -190,7 +195,12 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                           filled: true,
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.all(10),
-                          border: OutlineInputBorder(),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
                         ),
                       ),
                     ),
@@ -205,7 +215,12 @@ class _RegisterPhonePagetate extends State<RegisterPhonePage> {
                           filled: true,
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.all(10),
-                          border: OutlineInputBorder(),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
                         ),
                       ),
                     ),
