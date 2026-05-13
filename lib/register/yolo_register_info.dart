@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'yolo_register_phone.dart';
+import 'app_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,32 +47,7 @@ class _RegisterInfoPagetate extends State<RegisterInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF3D4150),
-        elevation: 0,
-        //왼쪽 이미지
-        leading: Container(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset('assets/img/ic_navigate_before_white_24dp.png'),
-        ),
-        // 가운데 제목
-        title: const Text(
-          "회원 가입",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        // 오른쪽 이미지
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              'assets/img/ic_clear_white_24dp.png',
-              width: 28,
-              height: 28,
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar.build(context, "회원 가입"),
 
       body: Container(
         width: double.infinity,

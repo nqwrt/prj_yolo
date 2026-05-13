@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../cutom_selector.dart';
 import 'yolo_register_info.dart';
+import 'app_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +42,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPagetate extends State<RegisterPage> {
-
   int selected = 0; // 👈 반드시 추가
 
   Widget termsBox(String text) {
@@ -51,20 +51,11 @@ class _RegisterPagetate extends State<RegisterPage> {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(
-          color: Colors.grey,
-          width: 1,
-        ),
+        border: Border.all(color: Colors.grey, width: 1),
         borderRadius: BorderRadius.circular(0),
       ),
       child: SingleChildScrollView(
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 13,
-            height: 1.5,
-          ),
-        ),
+        child: Text(text, style: const TextStyle(fontSize: 13, height: 1.5)),
       ),
     );
   }
@@ -72,76 +63,27 @@ class _RegisterPagetate extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF3D4150),
-        elevation: 0,
-        //왼쪽 이미지
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Container(
-              padding: const EdgeInsets.all(8.0),
-              child:Image.asset(
-                'assets/img/ic_navigate_before_white_24dp.png',
-              )
-          ),
-        ),
-
-        // 가운데 제목
-        title: const Text(
-          "회원 가입",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-
-        centerTitle: true,
-
-        // 오른쪽 이미지
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                'assets/img/ic_clear_white_24dp.png',
-                width: 28,
-                height: 28,
-              ),
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar.build(context, "회원 가입"),
 
       body: Container(
         width: double.infinity,
         color: const Color(0xFFEAE3DD),
         child: Column(
           children: [
-            SizedBox(height: 20,),
-            Text(
-              "욜로여행사에 오신 것을 환영합니다.",
-              style: TextStyle(fontSize:19 ),
-            ),
-            SizedBox(height: 12,),
-            SizedBox(height: 24,),
+            SizedBox(height: 20),
+            Text("욜로여행사에 오신 것을 환영합니다.", style: TextStyle(fontSize: 19)),
+            SizedBox(height: 12),
+            SizedBox(height: 24),
 
             Padding(
               padding: const EdgeInsets.only(left: 11, right: 11),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "이용약관",
-                    style: TextStyle( fontSize:15 ),
-                  ),
-                  SizedBox(height: 10,),
+                  Text("이용약관", style: TextStyle(fontSize: 15)),
+                  SizedBox(height: 10),
                   termsBox(termsText),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 10),
                   Row(
                     children: [
                       CustomRadioIcon(
@@ -157,13 +99,12 @@ class _RegisterPagetate extends State<RegisterPage> {
                         },
                       ),
                       SizedBox(width: 8),
-                      Text("사용자 이용약관에 동의 합니다.",style: TextStyle(fontSize: 13),),
+                      Text("사용자 이용약관에 동의 합니다.", style: TextStyle(fontSize: 13)),
                     ],
-                  )
-
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -175,35 +116,26 @@ class _RegisterPagetate extends State<RegisterPage> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => RegisterInfoPage(),
-              ),
+              MaterialPageRoute(builder: (context) => RegisterInfoPage()),
             );
           },
 
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            Image.asset(
-              'assets/img/ic_input_white_24dp.png',
-              width: 24,
-              height: 24,
-            ),
-
-            SizedBox(width: 8),
-
-            Text(
-              "계속",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
+              Image.asset(
+                'assets/img/ic_input_white_24dp.png',
+                width: 24,
+                height: 24,
               ),
-            ),
-            ]
+
+              SizedBox(width: 8),
+
+              Text("계속", style: TextStyle(color: Colors.white, fontSize: 16)),
+            ],
           ),
         ),
       ),
-
     );
   }
 }
